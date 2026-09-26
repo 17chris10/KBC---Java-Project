@@ -37,4 +37,32 @@ public class Game {
     public int getCurrentPrize() {
         return prizeMoney[currentQuestion - 1];
     }
+
+    public boolean answerQuestion(boolean isCorrect) {
+
+    if (isCorrect) {
+        score = getCurrentPrize();
+
+        // Update safe haven
+        if (currentQuestion == 5 ||
+            currentQuestion == 10 ||
+            currentQuestion == 15) {
+
+            safeHaven = score;
+        }
+
+        if (currentQuestion == 15) {
+            return true;
+        }
+
+        currentQuestion++;
+
+        return true;
+
+    } else {
+        score = safeHaven;
+
+        return false;
+    }
+}
 }
