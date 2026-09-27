@@ -104,4 +104,18 @@ public class Game {
 
         return answerQuestion(false);
     }
+
+    public int getTotalQuestions() {
+    return prizeMoney.length;
+}
+
+public boolean isFinalQuestion() {
+    return currentQuestion == prizeMoney.length;
+}
+
+public boolean hasReachedSafeHaven() {
+    return currentQuestion == 5 ||
+           currentQuestion == 10 ||
+           currentQuestion == 15;
+}
 }
