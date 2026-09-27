@@ -7,7 +7,7 @@ public class LifelineManager {
     private boolean doubleDipActive = false;
 
 
-    // 50-50 lifeline
+    //50 50 lifeline
     public int[] useFiftyFifty(int correctAnswer, int totalOptions) {
 
         if (fiftyFiftyUsed) {
@@ -22,7 +22,7 @@ public class LifelineManager {
     }
 
 
-    // Audience Poll lifeline
+    //audience Poll lifeline
     public int[] useAudiencePoll(int correctAnswer, int totalOptions) {
 
         if (audiencePollUsed) {
@@ -58,7 +58,7 @@ public class LifelineManager {
     }
 
 
-    // Double Dip lifeline
+    //Double Dip lifeline
     public boolean useDoubleDip() {
 
         if (doubleDipUsed) {
@@ -71,8 +71,7 @@ public class LifelineManager {
         return true;
     }
 
-
-    //Check if 2nd chance available
+// check for 2nd chance
     public boolean isDoubleDipActive() {
         return doubleDipActive;
     }
@@ -84,7 +83,7 @@ public class LifelineManager {
     }
 
 
-    //lifeline status
+    //check lifeline status
     public boolean isFiftyFiftyUsed() {
         return fiftyFiftyUsed;
     }
