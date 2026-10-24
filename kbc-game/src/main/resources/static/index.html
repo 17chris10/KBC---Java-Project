@@ -672,21 +672,12 @@
     }
 
     function playCustomVoiceOrTTS(text, is7CrWin) {
-      if (is7CrWin) {
-        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-        const audio = document.getElementById('win-7cr-audio');
-        if (audio) {
-          audio.currentTime = 0;
-          audio.play().catch(e => console.log("Audio play blocked by browser: ", e));
-        }
-      } else {
-        if ('speechSynthesis' in window) {
-          window.speechSynthesis.cancel();
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.rate = 0.95;
-          utterance.pitch = 1.0;
-          window.speechSynthesis.speak(utterance);
-        }
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
       }
     }
 
@@ -1031,11 +1022,6 @@
 
     function restartGame() {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-      const audio = document.getElementById('win-7cr-audio');
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
       document.getElementById('end-screen').classList.remove('active');
       document.getElementById('welcome-screen').classList.add('active');
     }
